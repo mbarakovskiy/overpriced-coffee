@@ -16,7 +16,11 @@
 
 6. Сделай так, чтобы при клике на ссылку оплатить текущий заказ завершался и корзина очищалась
 
-7. Добавь страницу `/login` на которой будет возможность заполнить своё имя. Чтобы сохранить имя потребуются [cookie](https://expressjs.com/en/4x/api.html#req.cookies) и `cookie-parser` [middleware](https://expressjs.com/en/resources/middleware/cookie-parser.html). Убедись, что случайно не получился [XSS](https://ru.wikipedia.org/wiki/%D0%9C%D0%B5%D0%B6%D1%81%D0%B0%D0%B9%D1%82%D0%BE%D0%B2%D1%8B%D0%B9_%D1%81%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D0%B8%D0%BD%D0%B3). В этом поможет [документация Handlebars](https://handlebarsjs.com/#html-escaping)
+7. Добавь страницу `/login` на которой будет возможность заполнить своё имя. Чтобы сохранить имя используй [cookie()](https://expressjs.com/en/4x/api.html#res.cookie). Чтобы читать имя потребуются [cookies](https://expressjs.com/en/4x/api.html#req.cookies) и `cookie-parser` [middleware](https://expressjs.com/en/resources/middleware/cookie-parser.html).
+
+Обрати внимание, что форма посылается GET запросом. Чтобы прочитать параметры используй [query](https://expressjs.com/en/4x/api.html#req.query). Не забудь поправить шаблон, чтобы в нём отображалось сохранённое имя.
+
+Убедись, что случайно не получился [XSS](https://ru.wikipedia.org/wiki/%D0%9C%D0%B5%D0%B6%D1%81%D0%B0%D0%B9%D1%82%D0%BE%D0%B2%D1%8B%D0%B9_%D1%81%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D0%B8%D0%BD%D0%B3). В этом поможет [документация Handlebars](https://handlebarsjs.com/#html-escaping)
 
 8. Сейчас все пользователи нашего сайта имеют общую корзину. Сделай так, чтобы у каждого нового пользователя была своя корзина
 
