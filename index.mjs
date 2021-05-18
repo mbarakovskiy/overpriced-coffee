@@ -39,11 +39,11 @@ app.get("/menu", (_, res) => {
       {
         name: "Americano",
         image: "/img/americano.jpg",
-        price: 999,
+        price: 320,
       },
-      { name: "Cappuccino", image: "/img/cappuccino.jpg", price: 999 },
-      { name: "Zaluppucino", image: "/img/flat-white.jpg", price: 999 },
-      { name: "Xyuatte", image: "/img/latte.jpg", price: 999 },
+      { name: "Cappuccino", image: "/img/cappuccino.jpg", price: 320 },
+      { name: "Russian-white", image: "/img/flat-white.jpg", price: 320 },
+      { name: "Russiatte", image: "/img/latte.jpg", price: 320 },
     ],
   });
 });
@@ -53,7 +53,7 @@ app.get("/buy/:name", (req, res) => {
   let order = {
     name: paths[paths.length-1],
     image: `/img/${paths[paths.length-1]}.jpg`,
-    price: 5051
+    price: 320
   }
   orders.push(order);
   console.log(orders);
@@ -61,9 +61,13 @@ app.get("/buy/:name", (req, res) => {
 });
 
 app.get("/cart", (req, res) => {
+  let price = 0
+  for (let a of orders){
+    price += a.price;
+  }
   res.render('cart', {
     layout: "default",
-    amount: 1000,
+    amount: price,
     items: orders
   })
 });
