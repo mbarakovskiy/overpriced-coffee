@@ -34,12 +34,12 @@ app.get("/menu", (_, res) => {
     items: [
       {
         name: "Americano",
-        image: "/static/img/americano.jpg",
+        image: "/img/americano.jpg",
         price: 999,
       },
-      { name: "Cappuccino", image: "/static/img/cappuccino.jpg", price: 999 },
-      { name: "Zaluppucino", image: "/static/img/flat-white.jpg", price: 999 },
-      { name: "Xyuatte", image: "/static/img/latte.jpg", price: 999 },
+      { name: "Cappuccino", image: "/img/cappuccino.jpg", price: 999 },
+      { name: "Zaluppucino", image: "/img/flat-white.jpg", price: 999 },
+      { name: "Xyuatte", image: "/img/latte.jpg", price: 999 },
     ],
   });
 });
@@ -49,7 +49,20 @@ app.get("/buy/:name", (req, res) => {
 });
 
 app.get("/cart", (req, res) => {
-  res.status(501).end();
+  res.render('cart', {
+    layout: "default",
+    amount: 1000,
+    items: [
+      {
+        name: "Americano",
+        image: "/img/americano.jpg",
+        price: 999,
+      },
+      { name: "Cappuccino", image: "/img/cappuccino.jpg", price: 999 },
+      { name: "Zaluppucino", image: "/img/flat-white.jpg", price: 999 },
+      { name: "Xyuatte", image: "/img/latte.jpg", price: 999 },
+    ]
+  })
 });
 
 app.post("/cart", (req, res) => {
