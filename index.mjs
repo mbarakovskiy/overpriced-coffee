@@ -20,8 +20,11 @@ app.engine(
   })
 );
 
+app.use(express.static('static'));
+
 app.get("/", (_, res) => {
-  res.sendFile(path.join(rootDir, "/static/html/index.html"));
+  //res.sendFile(path.join(rootDir, "/static/html/index.html"));
+  res.redirect('/menu')
 });
 
 app.get("/menu", (_, res) => {
