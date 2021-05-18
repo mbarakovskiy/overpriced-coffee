@@ -9,6 +9,7 @@ const app = express();
 
 // Выбираем в качестве движка шаблонов Handlebars
 app.set("view engine", "hbs");
+app.use(express.static('.'))
 // Настраиваем пути и дефолтный view
 app.engine(
   "hbs",
@@ -34,6 +35,8 @@ app.get("/menu", (_, res) => {
         price: 999,
       },
       { name: "Cappuccino", image: "/static/img/cappuccino.jpg", price: 999 },
+      { name: "Zaluppucino", image: "/static/img/flat-white.jpg", price: 999 },
+      { name: "Xyuatte", image: "/static/img/latte.jpg", price: 999 },
     ],
   });
 });
