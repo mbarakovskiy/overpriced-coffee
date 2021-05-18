@@ -1,10 +1,11 @@
+<section class="cart__total">
+    <div>Итого к оплате: {{ amount }}</div>
+    <form class="form" method="post">
+        <input class="action" type="submit" value="оплатить" />
+    </form>
+</section>
+
 <ul class="coffee__list">
-    <section class="cart__total">
-        <div>Итого к оплате: {{ amount }}</div>
-        <form class="form" method="post">
-            <input class="action" type="submit" value="оплатить" />
-        </form>
-    </section>
     {{#each items}}
         <li>
             <header class="coffee__name">{{name}}</header>
